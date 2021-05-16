@@ -11,7 +11,7 @@ class DarkModeSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Switch(
-      value: AppController.instance.darkModeSwitch.value,
+      value: AppController.instance.isDark,
       onChanged: (bool newValue) {
         AppController.instance.changeTheme(newValue);
       },
