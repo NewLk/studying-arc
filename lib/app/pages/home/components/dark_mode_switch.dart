@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/app/controllers/app_controller.dart';
+import 'package:my_app/app/app_controller.dart';
 
 class DarkModeSwitch extends StatelessWidget {
   /// Componente responsável por exibir um botão do tipo switch no formato
