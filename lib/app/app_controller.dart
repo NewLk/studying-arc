@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/app/interfaces/local_storage_interface.dart';
 import 'package:my_app/app/models/appconfig_model.dart';
+import 'package:my_app/app/services/shared_local_storage_service.dart';
 
 class AppController {
   // este é um exemplo de construtor privado. O acesso a esse tipo de contrutor
   // é permitido somente dentro da sua própria classe.
-  AppController._();
+  AppController._() {
+    localStorage.get('isDark').then((value) {
+      print(
+          "[AppController] AppController._() - this is the storaged value: $value");
+      if (value != null) {
+        config.darkModeSwitch.value = value;
+      }
+    });
+  }
 
   // para que os campos e métodos de um controller possam ser usados em toda a
   // aplicação, o controller precisa ser um singleton ou injetado em uma soluçáo
@@ -19,11 +29,15 @@ class AppController {
   // controller seja "final", como ilustra o códio abaixo.
   static final AppController instance = AppController._();
   final AppConfigModel config = AppConfigModel();
+  final ILocalStorage localStorage = SharedLocalStorageService();
 
   bool get isDark => config.darkModeSwitch.value;
   ValueNotifier<bool> get darkModeSwitch => config.darkModeSwitch;
 
-  changeTheme(bool newValue) {
+  void changeTheme(bool newValue) {
     config.darkModeSwitch.value = newValue;
+    print(
+        "[AppController] changeTheme(bool newValue) - this is the new value: $newValue");
+    localStorage.put('isDark', newValue);
   }
 }
