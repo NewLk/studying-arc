@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/app/models/appconfig_model.dart';
 
 class AppController {
   // este é um exemplo de construtor privado. O acesso a esse tipo de contrutor
@@ -17,10 +18,12 @@ class AppController {
   // deste controller ao longo da aplicação, é necessário que a instância do
   // controller seja "final", como ilustra o códio abaixo.
   static final AppController instance = AppController._();
+  final AppConfigModel config = AppConfigModel();
 
-  final ValueNotifier<bool> darkModeSwitch = ValueNotifier<bool>(false);
+  bool get isDark => config.darkModeSwitch.value;
+  ValueNotifier<bool> get darkModeSwitch => config.darkModeSwitch;
 
-  changeTheme(bool value) {
-    darkModeSwitch.value = value;
+  changeTheme(bool newValue) {
+    config.darkModeSwitch.value = newValue;
   }
 }

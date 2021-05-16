@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/app/controllers/app_controller.dart';
+import 'package:my_app/app/app_controller.dart';
 
 class DarkModeSwitch extends StatelessWidget {
   /// Componente responsável por exibir um botão do tipo switch no formato
@@ -11,7 +11,7 @@ class DarkModeSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Switch(
-      value: AppController.instance.darkModeSwitch.value,
+      value: AppController.instance.isDark,
       onChanged: (bool newValue) {
         AppController.instance.changeTheme(newValue);
       },

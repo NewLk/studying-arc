@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/app/components/dark_mode_switch.dart';
+import 'components/dark_mode_switch.dart';
 
 class HomePage extends StatefulWidget {
   @override
