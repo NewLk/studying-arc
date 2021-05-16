@@ -24,6 +24,9 @@ class AppController {
   ValueNotifier<bool> get darkModeSwitch => config.darkModeSwitch;
 
   changeTheme(bool newValue) {
+    // sharedPreferences
+    // hive
+    // sqlite
     config.darkModeSwitch.value = newValue;
   }
 }
