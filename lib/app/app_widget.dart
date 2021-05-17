@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/app/app_controller.dart';
-
 import 'pages/home/home_page.dart';
 
 class AppWidget extends StatelessWidget {
